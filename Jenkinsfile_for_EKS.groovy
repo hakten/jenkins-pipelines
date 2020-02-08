@@ -11,7 +11,7 @@ node {
             sh "./terraform version"
     }
         stage("stage3"){
-    
+            sh "source setenv.sh configurations/dev/eu-west-1/dev.tfvars"
 
     }
         stage("stage4"){
