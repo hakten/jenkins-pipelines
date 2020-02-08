@@ -3,7 +3,8 @@ node {
     properties([parameters([
         choice(choices: [
             'golden_ami', 
-            'tower', 'elk', 
+            'tower', 
+            'elk', 
             'nagiosxi', 
             'gitlab', 
             'nexus', 
