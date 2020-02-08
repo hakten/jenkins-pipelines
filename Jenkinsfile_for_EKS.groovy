@@ -1,6 +1,6 @@
 node {
         stage("Pull Repo"){
-            git 'https://github.com/bkarakas/terraform-iaac-eks-burak.git'
+            git 'https://github.com/hakten/terraform-aws-eks.git'
     }
         stage("stage2"){
 
