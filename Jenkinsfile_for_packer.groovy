@@ -1,8 +1,22 @@
 node {
 
     properties([parameters([
-        choice(choices: ['golden_ami', 'tower', 'elk', 'nagiosxi', 'gitlab', 'nexus', 'vault'], description: 'What tool would you like to build?', name: 'TOOL_TO_PROVISION'), 
-        choice(choices: ['us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'], description: 'Please choose a region.', name: 'AMI_REGION')
+        choice(choices: [
+            'golden_ami', 
+            'tower', 'elk', 
+            'nagiosxi', 
+            'gitlab', 
+            'nexus', 
+            'vault',
+            ], 
+            description: 'What tool would you like to build?', name: 'TOOL_TO_PROVISION'), 
+        choice(choices: [
+            'us-east-1', 
+            'us-east-2', 
+            'us-west-1', 
+            'us-west-2',
+            ], 
+            description: 'Please choose a region.', name: 'AMI_REGION')
         text(defaultValue: 'dummy@gmail.com', description: 'Please provide email(s) for notifications. Use "," for multiple emails.', name: 'EMAIL_TO_SEND')
         ])])
     
