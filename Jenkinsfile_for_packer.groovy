@@ -27,7 +27,7 @@ node {
     }
     stage("Build Image"){
         sh "packer version"
-        //sh "packer build -var region=${AMI_REGION} tools/${TOOL_TO_PROVISION}.json"
+        sh "packer build -var region=${AMI_REGION} tools/${TOOL_TO_PROVISION}.json"
         
     }
     stage("Send Notification to Slack"){
