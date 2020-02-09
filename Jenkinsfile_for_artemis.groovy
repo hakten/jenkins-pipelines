@@ -30,6 +30,7 @@ node {
 		timestamps {
 			ws{
 				sh '''
+                    sudo su -
 					ssh centos@${ENVIR} sudo yum install epel-release -y
 					ssh centos@${ENVIR} sudo yum install python-pip -y 
 					ssh centos@${ENVIR} sudo pip install Flask
@@ -41,6 +42,7 @@ node {
 		timestamps {
 			ws {
 				sh '''
+                    sudo su -
 					scp -r * centos@${ENVIR}:/tmp
 					'''
 		}
@@ -50,6 +52,7 @@ node {
 		timestamps {
 			ws {
 				sh '''
+                    sudo su -
 					ssh centos@${ENVIR} nohup python /tmp/artemis.py  &
 					'''
 		}
