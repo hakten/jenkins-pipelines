@@ -3,7 +3,7 @@ node {
         buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3')), 
         parameters([
         choice(choices: [
-            'golden_ami', 
+            'golden_image', 
             'tower', 
             'elk', 
             'nagiosxi', 
