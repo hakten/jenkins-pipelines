@@ -30,6 +30,7 @@ node {
 		timestamps {
 			ws{
 				sh '''
+                    whoami
                     sudo su -
 					ssh centos@${ENVIR} sudo yum install epel-release -y
 					ssh centos@${ENVIR} sudo yum install python-pip -y 
