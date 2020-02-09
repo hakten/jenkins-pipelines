@@ -10,12 +10,13 @@ node {
 		'version/0.5'], 
 	description: 'Which version of the app should I deploy? ', 
 	name: 'Version'), 
+    text(defaultValue: 'dummy@gmail.com', description: 'Please provide email(s) for notifications. Use , for multiple emails', name: 'EMAIL_TO_SEND'),
 	choice(choices: 
 	[
-		'dev1.acirrustech.com', 
-		'qa1.acirrustech.com', 
-		'stage1.acirrustech.com', 
-		'prod1.acirrustech.com'], 
+		'dev1.huseyinakten.net', 
+		'qa1.huseyinakten.net', 
+		'stage1.huseyinakten.net', 
+		'prod1.huseyinakten.net'], 
 	description: 'Please provide an environment to build the application', 
 	name: 'ENVIR')])])
 	stage("Stage1"){
@@ -62,4 +63,13 @@ node {
 			}
 		}
 	}
+    stage("Send Email"){
+    mail bcc: '', 
+    body: "Hello, your artemis app is deployed to ${ENVIR}", 
+    cc: '', 
+    from: '', 
+    replyTo: '', 
+    subject: "Artemis ${Version} has been deployed", 
+    to: "${EMAIL_TO_SEND}"
+    }
 }
