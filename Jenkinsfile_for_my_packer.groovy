@@ -22,8 +22,8 @@ properties([
             'us-west-2'
             ], 
             description: 'Please choose a region', name: 'REGION'),
-        string(defaultValue: 't2.micro', description: 'Please enter instance type for your AMI in t2.micro, m4.large format.', name: 'INSTANCE_TYPE', trim: false)])])
-
+        string(defaultValue: 't2.micro', description: 'Please enter instance type for your AMI in t2.micro, m4.large format.', name: 'INSTANCE_TYPE', trim: false),
+        string(defaultValue: 'default@mail.com', description: 'Please enter your email address.', name: 'EMAIL', trim: false)])])
 stage('Pull Repo') {
     git 'https://github.com/hakten/packer.git'
 }
@@ -40,7 +40,7 @@ stage('Send Email') {
     from: '', 
     replyTo: '', 
     subject: 'Your AMI request is completed.', 
-    to: "${EMAIL_TO_SEND}"
+    to: "${EMAIL}"
 }
 
 }
