@@ -25,6 +25,7 @@ stage('Pull Repo') {
 }
 
 stage('Build Image') {
+    sh "packer version"
     sh "packer build -var region=${REGION} tools/${TOOL-TO-PROVISION}.json"
 
 }
