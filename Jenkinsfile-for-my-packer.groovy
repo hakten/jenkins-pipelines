@@ -21,7 +21,7 @@ properties([
         description: 'Where would you like to build your AMI?', name: 'REGION')])])
 
 stage('Pull Repo') {
-    git 'https://github.com/hakten/packer.git'
+    git 'https://github.com/farrukh90/packer.git'
 }
 
 stage('Build Image') {
