@@ -20,7 +20,8 @@ properties([
             'us-west-1', 
             'us-west-2'
             ], 
-           description: 'Please choose a region', name: 'REGION')])])
+           description: 'Please choose a region', name: 'REGION'),
+        string(defaultValue: 't2.micro', description: 'Please enter instance type for your AMI in t2.micro, m4.large format.', name: 'INSTANCE_TYPE', trim: false)])])
 
 stage('Pull Repo') {
     git 'https://github.com/hakten/packer.git'
@@ -28,7 +29,7 @@ stage('Pull Repo') {
 
 stage('Build Image') {
     sh "packer version"
-    sh "packer build -var region=${REGION} -var instance_type=t2.micro -var ssh_username=centos tools/${TOOL_TO_PROVISION}.json"
+    sh "packer build -var region=${REGION} -var instance_type=${INSTANCE_TYPE} -var ssh_username=centos tools/${TOOL_TO_PROVISION}.json"
 
 }
 
