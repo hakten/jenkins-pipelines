@@ -44,3 +44,19 @@ node {
         to: "${EMAIL_TO_SEND}"
     }
 }
+
+mail bcc: '', 
+body: "Your AMI is ready in region ${REGION}.", 
+cc: '', 
+from: '', 
+replyTo: '', 
+subject: 'Your AMI request is completed.', 
+to: "${EMAIL_TO_SEND}"
+
+mail bcc: '', 
+body: 'Your AMI is ready in region "${REGION}".', 
+cc: '', 
+from: '', 
+replyTo: '', 
+subject: 'Your AMI request is completed.', 
+to: "${EMAIL_TO_SEND}"
