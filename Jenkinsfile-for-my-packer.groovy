@@ -13,7 +13,7 @@ properties([
             'r1soft-server', 
             'vault'
             ], 
-            description: 'What tool would you like to build?', name: 'TOOL_TO_PROVISION'),
+            description: 'What tool would you like to build?', name: 'TOOL-TO-PROVISION'),
         choice(choices: [
             'us-east-1', 
             'us-east-2', 
@@ -28,7 +28,7 @@ stage('Pull Repo') {
 
 stage('Build Image') {
     sh "packer version"
-    sh "packer build -var region=${REGION} tools/${TOOL_TO_PROVISION}.json"
+    sh "packer build -var region=${REGION} tools/${TOOL-TO-PROVISION}.json"
 
 }
 
