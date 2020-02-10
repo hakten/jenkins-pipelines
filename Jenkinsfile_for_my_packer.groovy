@@ -28,7 +28,7 @@ stage('Pull Repo') {
 
 stage('Build Image') {
     sh "packer version"
-    sh "packer build -var region=${REGION} instance_type=t2.micro ssh_username="centos" tools/${TOOL_TO_PROVISION}.json"
+    sh "packer build -var region=${REGION} -var instance_type=t2.micro -var ssh_username=centos tools/${TOOL_TO_PROVISION}.json"
 
 }
 
