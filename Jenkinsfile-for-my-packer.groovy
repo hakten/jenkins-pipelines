@@ -11,17 +11,19 @@ properties([
             'nagiosxi', 
             'nexus', 
             'r1soft-server', 
-            'vault'], 
-        description: 'Which tool ami would you like to build?', name: 'TOOL-TO-PROVISION'), 
+            'vault'
+            ], 
+            description: 'What tool would you like to build?', name: 'TOOL_TO_PROVISION'),
         choice(choices: [
             'us-east-1', 
             'us-east-2', 
             'us-west-1', 
-            'us-west-2'], 
-        description: 'Where would you like to build your AMI?', name: 'REGION')])])
+            'us-west-2'
+            ], 
+           description: 'Please choose a region', name: 'AMI_REGION')])])
 
 stage('Pull Repo') {
-    git 'https://github.com/farrukh90/packer.git'
+    git 'https://github.com/hakten/packer.git'
 }
 
 stage('Build Image') {
