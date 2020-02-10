@@ -25,7 +25,7 @@ stage('Pull Repo') {
 }
 
 stage('Build Image') {
-    sh "packer build -var region=${REGION} --var-file ansible-tower/variable.json tools/${TOOL-TO-PROVISION}.json"
+    sh "packer build -var region=${REGION} tools/${TOOL-TO-PROVISION}.json"
 
 }
 
