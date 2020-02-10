@@ -1,5 +1,6 @@
 node {
 properties([
+    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')),
     parameters([
         choice(choices: [
             'ansible-tower', 
