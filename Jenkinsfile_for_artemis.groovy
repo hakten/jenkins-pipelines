@@ -19,6 +19,7 @@ node {
 		'prod1.huseyinakten.net'], 
 	description: 'Please provide an environment to build the application', 
 	name: 'ENVIR')])])
+	
 	stage("Stage1"){
 		timestamps {
 			ws {
@@ -67,7 +68,7 @@ node {
     mail bcc: '', 
     body: "Hello, your artemis app is deployed to ${ENVIR}", 
     cc: '', 
-    from: '', 
+    from: 'husakten@gmail.com', 
     replyTo: '', 
     subject: "Artemis ${Version} has been deployed", 
     to: "${EMAIL_TO_SEND}"
