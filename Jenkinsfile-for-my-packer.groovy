@@ -13,7 +13,7 @@ properties([
             'r1soft-server', 
             'vault'
             ], 
-            description: 'What tool would you like to build?', name: 'TOOL-TO-PROVISION'),
+            description: 'What tool would you like to build?', name: 'TOOL_TO_PROVISION'),
         choice(choices: [
             'us-east-1', 
             'us-east-2', 
