@@ -3,6 +3,7 @@ node {
     stage("Pull Repo"){
         ws ("tmp/"){
             git 'https://github.com/hakten/Dockerfiles.git'
+            sh "ls"
         }
     }
     stage("Build Image") {
