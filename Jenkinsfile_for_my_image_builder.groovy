@@ -7,6 +7,6 @@ Node {
         stage("Build Image") {
             sh "cd ${IMAGE}"
             sh "docker build -t ${IMAGE}"
-
-
-}
+        }
+        
+    }
