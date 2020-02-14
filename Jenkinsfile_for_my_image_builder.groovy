@@ -8,7 +8,7 @@ node {
     stage("Build Image") {
         ws ("tmp/"){ 
             sh "cd ${IMAGE}"
-            sh "docker build -t ${IMAGE}"
+            sh "docker build -t ${IMAGE} ."
         }
     }
 }
