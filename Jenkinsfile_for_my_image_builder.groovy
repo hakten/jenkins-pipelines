@@ -4,9 +4,9 @@ Node {
         ws ("tmp/"){
             git 'https://github.com/hakten/Dockerfiles.git'
         }
+    }
         stage("Build Image") {
             sh "cd ${IMAGE}"
             sh "docker build -t ${IMAGE}"
-        }
-
+    }
 }
