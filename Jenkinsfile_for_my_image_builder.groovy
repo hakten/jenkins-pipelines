@@ -8,5 +8,5 @@ Node {
             sh "cd ${IMAGE}"
             sh "docker build -t ${IMAGE}"
         }
-        
-    }
+
+}
