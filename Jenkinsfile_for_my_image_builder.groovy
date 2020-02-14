@@ -6,8 +6,7 @@ node {
         }
     }
     stage("Build Image") {
-        ws ("tmp/"){ 
-            sh "cd ${IMAGE}"
+        ws ("tmp/Dockerfiles/${IMAGE}"){ 
             sh "docker build -t ${IMAGE} ."
         }
     }
