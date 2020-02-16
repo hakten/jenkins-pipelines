@@ -33,14 +33,14 @@ stage('Build Image') {
     sh "packer build -var region=${REGION} -var instance_type=${INSTANCE_TYPE} -var ssh_username=centos tools/${TOOL_TO_PROVISION}.json"
 }
 
-stage('Send Email') {
-    mail bcc: '', 
-    body: "Your AMI is ready in region ${REGION}.", 
-    cc: '', 
-    from: '', 
-    replyTo: '', 
-    subject: 'Your AMI request is completed.', 
-    to: "${EMAIL}"
-}
+// stage('Send Email') {
+//     mail bcc: '', 
+//     body: "Your AMI is ready in region ${REGION}.", 
+//     cc: '', 
+//     from: '', 
+//     replyTo: '', 
+//     subject: 'Your AMI request is completed.', 
+//     to: "${EMAIL}"
+// }
 
 }

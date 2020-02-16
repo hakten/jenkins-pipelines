@@ -20,7 +20,7 @@ node {
             ])])
 
     stage(Checkout) {
-        checkout([$class: 'GitSCM', branches: [[name: "*/${VERSION}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/fuchicorp/artemis.git']]])
+        checkout([$class: 'GitSCM', branches: [[name: "*/${VERSION}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hakten/artemis.git']]])
 
     }
     stage(Install Prerequisities) {
