@@ -12,7 +12,7 @@ node {
     }
 
     stage("login to ECR"){
-            sh "$(aws ecr get-login --no-include-email --region eu-west-1)"
+            sh '''$(aws ecr get-login --no-include-email --region eu-west-1)'''
     }
 
     stage("push image"){
