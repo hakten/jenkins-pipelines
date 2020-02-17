@@ -35,11 +35,11 @@ node {
 					scp -r * centos@${ENVIR}:/tmp
 					'''
 		}
-	// stage("Run Artemis"){
-	// 			sh '''
-	// 				ssh centos@${ENVIR} nohup python /tmp/artemis.py  &
-	// 				'''
-	// 	}
+	stage("Run Artemis"){
+				sh '''
+					ssh centos@${ENVIR} nohup python /tmp/artemis.py  &
+					'''
+		}
 	// stage("Send slack notifications"){
 	// 			echo "Slack"
 	// 			//slackSend color: '#BADA55', message: 'Hello, World!'
