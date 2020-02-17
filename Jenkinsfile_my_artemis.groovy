@@ -40,10 +40,10 @@ node {
 					ssh centos@${ENVIR} nohup python /tmp/artemis.py  &
 					'''
 		}
-	// stage("Send slack notifications"){
-	// 			echo "Slack"
-	// 			//slackSend color: '#BADA55', message: 'Hello, World!'
-	// 		}
+	stage("Send slack notifications"){
+				echo "Slack"
+				//slackSend color: '#BADA55', message: 'Hello, World!'
+			}
 
     // stage("Send Email"){
     //   mail 
