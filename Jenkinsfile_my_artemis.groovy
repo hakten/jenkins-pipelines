@@ -42,7 +42,7 @@ node {
 		}
 	stage("Send slack notifications"){
 				echo "Slack"
-				//slackSend  message: 'Hello, World!'
+				slackSend  message: 'Hello, World!'
 			}
 
     stage("Send Email"){
