@@ -30,11 +30,11 @@ node {
 					ssh centos@${ENVIR} sudo pip install Flask
 					'''
 		}
-	// stage("Copy Artemis"){
-	// 			sh '''
-	// 				scp -r * centos@${ENVIR}:/tmp
-	// 				'''
-	// 	}
+	stage("Copy Artemis"){
+				sh '''
+					scp -r * centos@${ENVIR}:/tmp
+					'''
+		}
 	// stage("Run Artemis"){
 	// 			sh '''
 	// 				ssh centos@${ENVIR} nohup python /tmp/artemis.py  &
