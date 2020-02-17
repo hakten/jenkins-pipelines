@@ -1,12 +1,19 @@
 node {
-    properties([[$class: 'JiraProjectProperty'], parameters([choice(choices: ['terraform_0.11.14', 'terraform_0.12.19', 'packer_1.5.0'], description: 'Please choose the tool to build Docker image.', name: 'TOOL')])])
+    properties([[$class: 'JiraProjectProperty'], parameters([
+        choice(choices: ['terraform', 'terraform', 'packer'], description: 'Please choose the tool to build Docker image.', name: 'TOOL'),
+        string(defaultValue: 'latest', description: 'Please enter app version', name: 'VERSION', trim: false)
+    ])])
     
     stage("Pull Repo"){
             git 'https://github.com/hakten/Dockerfiles.git'
     }
 
     stage("Build Image") {
-            sh "docker build -t 103872286656.dkr.ecr.eu-west-1.amazonaws.com/${TOOl} ${TOOL}/."
+            sh "docker build -t ${TOOl}:${VERSION} ${TOOL}/."
+    }
+    
+    stage("Build Image") {
+            sh "docker tag ${TOOl}:${VERSION} 103872286656.dkr.ecr.eu-west-1.amazonaws.com/${TOOL}:${VERSION}"
     }
 
     stage("login to ECR"){
@@ -15,6 +22,6 @@ node {
 
     stage("push image"){
             sh "docker images"
-            sh "docker push 103872286656.dkr.ecr.eu-west-1.amazonaws.com/${TOOL}:latest"
+            sh "docker push 103872286656.dkr.ecr.eu-west-1.amazonaws.com/${TOOL}:${VERSION}"
     }
 }
