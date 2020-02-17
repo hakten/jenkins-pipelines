@@ -30,10 +30,10 @@ stage('Pull Repo') {
     git 'https://github.com/hakten/packer.git'
 }
 
-stage('Build Image') {
-    sh "packer version"
-    sh "packer build -var region=${REGION} -var instance_type=${INSTANCE_TYPE} -var ssh_username=centos tools/${TOOL_TO_PROVISION}.json"
-}
+// stage('Build Image') {
+//     sh "packer version"
+//     sh "packer build -var region=${REGION} -var instance_type=${INSTANCE_TYPE} -var ssh_username=centos tools/${TOOL_TO_PROVISION}.json"
+// }
 
 stage('Send Email') {
     mail bcc: '', 
