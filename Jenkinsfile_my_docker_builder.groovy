@@ -6,7 +6,7 @@ node {
     }
 
     stage("Build Image") {
-            sh "docker build -t ${TOOl} ${TOOL}/."
+            sh "docker build -t 103872286656.dkr.ecr.eu-west-1.amazonaws.com/${TOOl} ${TOOL}/."
     }
 
     stage("login to ECR"){
