@@ -3,12 +3,10 @@ node {
     
     stage("Pull Repo"){
             git 'https://github.com/hakten/Dockerfiles.git'
-            sh "ls"
     }
 
     stage("Build Image") {
-            sh "ls"
-            sh "docker build -t ${TOOl} Dockerfiles/${TOOL}/."
+            sh "docker build -t ${TOOl} ${TOOL}/."
     }
 
     stage("login to ECR"){
