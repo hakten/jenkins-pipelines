@@ -27,22 +27,22 @@ properties([
 
 
 stage('Pull Repo') {
-    git 'https://github.com/hakten/packer.git'
+    git 'https://github.com/hakten/packer_files.git'
 }
 
 stage('Build Image') {
     sh "packer version"
-    sh "packer build -var region=${REGION} -var instance_type=${INSTANCE_TYPE} -var ssh_username=centos tools/${TOOL_TO_PROVISION}.json"
+    sh "packer build -var region=${REGION} -var instance_type=${INSTANCE_TYPE} -var ssh_username=centos ${TOOL_TO_PROVISION}.json"
 }
 
-// stage('Send Email') {
-//     mail bcc: '', 
-//     body: "Your AMI is ready in region ${REGION}.", 
-//     cc: '', 
-//     from: '', 
-//     replyTo: '', 
-//     subject: 'Your AMI request is completed.', 
-//     to: "${EMAIL}"
-// }
+stage('Send Email') {
+    mail bcc: '', 
+    body: "Your AMI is ready in region ${REGION}.", 
+    cc: '', 
+    from: 'husakten@gmail.com', 
+    replyTo: '', 
+    subject: 'Your AMI request is completed.', 
+    to: "${EMAIL}"
+}
 
 }
