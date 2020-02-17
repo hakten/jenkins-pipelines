@@ -9,7 +9,7 @@ node {
     }
 
     stage("Build Image") {
-            sh "docker build -t ${TOOl}:${VERSION} ${TOOL}/."
+            sh "docker build -t ${TOOl}:${VERSION} ${TOOL}_${VERSION}/."
     }
     
     stage("Build Image") {
