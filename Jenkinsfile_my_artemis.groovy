@@ -45,16 +45,16 @@ node {
 				//slackSend color: '#BADA55', message: 'Hello, World!'
 			}
 
-    // stage("Send Email"){
-    //   mail 
-	//     bcc: '', 
-    //     body: "Hello, your artemis app is deployed to ${ENVIR}", 
-    //     cc: '', 
-    //     from: 'husakten@gmail.com', 
-    //     replyTo: '', 
-    //     subject: "Artemis ${Version} has been deployed", 
-    //     to: "${EMAIL_TO_SEND}"
-    // }
+    stage("Send Email"){
+      mail 
+	    bcc: '', 
+        body: "Hello, your artemis app is deployed to ${ENVIR}", 
+        cc: '', 
+        from: 'husakten@gmail.com', 
+        replyTo: '', 
+        subject: "Artemis ${Version} has been deployed", 
+        to: "${EMAIL_TO_SEND}"
+    }
 
 
 }
