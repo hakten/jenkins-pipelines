@@ -19,27 +19,27 @@ node {
             string(defaultValue: 'husakten@gmail.com', description: 'Please enter your email, use "," multiple email.s', name: 'EMAIL', trim: false)
             ])])
 
-    stage("Checkout") {
-        checkout([$class: 'GitSCM', branches: [[name: "*/${VERSION}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hakten/artemis.git']]])
+    // stage("Checkout") {
+    //     checkout([$class: 'GitSCM', branches: [[name: "*/${VERSION}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hakten/artemis.git']]])
 
-    }
-	stage("Install Prerequisites"){
-				sh '''
-					ssh centos@${ENVIR} sudo yum install epel-release -y
-					ssh centos@${ENVIR} sudo yum install python-pip -y 
-					ssh centos@${ENVIR} sudo pip install Flask
-					'''
-		}
-	stage("Copy Artemis"){
-				sh '''
-					scp -r * centos@${ENVIR}:/tmp
-					'''
-		}
-	stage("Run Artemis"){
-				sh '''
-					ssh centos@${ENVIR} nohup python /tmp/artemis.py  &
-					'''
-		}
+    // }
+	// stage("Install Prerequisites"){
+	// 			sh '''
+	// 				ssh centos@${ENVIR} sudo yum install epel-release -y
+	// 				ssh centos@${ENVIR} sudo yum install python-pip -y 
+	// 				ssh centos@${ENVIR} sudo pip install Flask
+	// 				'''
+	// 	}
+	// stage("Copy Artemis"){
+	// 			sh '''
+	// 				scp -r * centos@${ENVIR}:/tmp
+	// 				'''
+	// 	}
+	// stage("Run Artemis"){
+	// 			sh '''
+	// 				ssh centos@${ENVIR} nohup python /tmp/artemis.py  &
+	// 				'''
+	// 	}
 	// stage("Send slack notifications"){
 	// 			echo "Slack"
 	// 			//slackSend color: '#BADA55', message: 'Hello, World!'
