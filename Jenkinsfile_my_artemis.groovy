@@ -19,16 +19,41 @@ node {
             string(defaultValue: 'husakten@gmail.com', description: 'Please enter your email, use "," multiple email.s', name: 'EMAIL', trim: false)
             ])])
 
-    stage(Checkout) {
+    stage("Checkout") {
         checkout([$class: 'GitSCM', branches: [[name: "*/${VERSION}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hakten/artemis.git']]])
 
     }
-    stage(Install Prerequisities) {
-    withCredentials([sshUserPrivateKey(credentialsId: '4287f71e-5803-4db2-849a-3bd252b46a60', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
-    sudo yum install epel-release -y
-    sudo yum install python-pip -y
-    sudo pip install Flask
-    }
+	stage("Install Prerequisites"){
+				sh '''
+					ssh centos@${ENVIR} sudo yum install epel-release -y
+					ssh centos@${ENVIR} sudo yum install python-pip -y 
+					ssh centos@${ENVIR} sudo pip install Flask
+					'''
+		}
+	stage("Copy Artemis"){
+				sh '''
+					scp -r * centos@${ENVIR}:/tmp
+					'''
+		}
+	stage("Run Artemis"){
+				sh '''
+					ssh centos@${ENVIR} nohup python /tmp/artemis.py  &
+					'''
+		}
+	stage("Send slack notifications"){
+				echo "Slack"
+				//slackSend color: '#BADA55', message: 'Hello, World!'
+			}
+
+    stage("Send Email"){
+      mail 
+	    bcc: '', 
+        body: "Hello, your artemis app is deployed to ${ENVIR}", 
+        cc: '', 
+        from: 'husakten@gmail.com', 
+        replyTo: '', 
+        subject: "Artemis ${Version} has been deployed", 
+        to: "${EMAIL_TO_SEND}"
     }
 
 
