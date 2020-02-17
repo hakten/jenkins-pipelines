@@ -1,7 +1,7 @@
 node {
     properties([[$class: 'JiraProjectProperty'], parameters([
         choice(choices: ['terraform', 'terraform', 'packer'], description: 'Please choose the tool to build Docker image.', name: 'TOOL'),
-        string(defaultValue: 'latest', description: 'Please enter app version', name: 'VERSION', trim: false)
+        string(defaultValue: '0.11.14', description: 'Please enter app version in numbers as in github folder, as 0.12.19', name: 'VERSION', trim: false)
     ])])
     
     stage("Pull Repo"){
