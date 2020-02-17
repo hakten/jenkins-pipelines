@@ -19,10 +19,10 @@ node {
             string(defaultValue: 'husakten@gmail.com', description: 'Please enter your email, use "," multiple email.s', name: 'EMAIL', trim: false)
             ])])
 
-    // stage("Checkout") {
-    //     checkout([$class: 'GitSCM', branches: [[name: "*/${VERSION}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hakten/artemis.git']]])
+    stage("Checkout") {
+        checkout([$class: 'GitSCM', branches: [[name: "*/${VERSION}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hakten/artemis.git']]])
 
-    // }
+    }
 	// stage("Install Prerequisites"){
 	// 			sh '''
 	// 				ssh centos@${ENVIR} sudo yum install epel-release -y
