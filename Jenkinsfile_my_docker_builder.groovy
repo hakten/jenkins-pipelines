@@ -15,6 +15,6 @@ node {
 
     stage("push image"){
             sh "docker images"
-            sh "docker push 103872286656.dkr.ecr.eu-west-1.amazonaws.com/${TOOL}"
+            sh "docker push 103872286656.dkr.ecr.eu-west-1.amazonaws.com/${TOOL}:latest"
     }
 }
