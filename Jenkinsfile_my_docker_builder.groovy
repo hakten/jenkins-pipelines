@@ -1,5 +1,7 @@
 node {
-    properties([[$class: 'JiraProjectProperty'], parameters([
+    properties([
+    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')),
+    parameters([
         choice(choices: ['terraform', 'packer'], description: 'Please choose the tool to build Docker image.', name: 'TOOL'),
         string(defaultValue: '0.11.14', description: 'Please enter app version in numbers as in github folder, as 0.12.19', name: 'VERSION', trim: false)
     ])])
