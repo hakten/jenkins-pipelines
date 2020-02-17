@@ -52,7 +52,7 @@ node {
     from: 'husakten@gmail.com', 
     replyTo: '', 
     subject: "Artemis ${Version} has been deployed", 
-    to: "${EMAIL_TO_SEND}"
+    to: "${EMAIL}"
     }
 
 
