@@ -23,13 +23,13 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: "*/${VERSION}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hakten/artemis.git']]])
 
     }
-	// stage("Install Prerequisites"){
-	// 			sh '''
-	// 				ssh centos@${ENVIR} sudo yum install epel-release -y
-	// 				ssh centos@${ENVIR} sudo yum install python-pip -y 
-	// 				ssh centos@${ENVIR} sudo pip install Flask
-	// 				'''
-	// 	}
+	stage("Install Prerequisites"){
+				sh '''
+					ssh centos@${ENVIR} sudo yum install epel-release -y
+					ssh centos@${ENVIR} sudo yum install python-pip -y 
+					ssh centos@${ENVIR} sudo pip install Flask
+					'''
+		}
 	// stage("Copy Artemis"){
 	// 			sh '''
 	// 				scp -r * centos@${ENVIR}:/tmp
