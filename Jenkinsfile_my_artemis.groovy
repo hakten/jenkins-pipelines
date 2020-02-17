@@ -46,8 +46,7 @@ node {
 			}
 
     stage("Send Email"){
-    mail 
-	bcc: '', 
+    mail bcc: '', 
     body: "Hello, your artemis app is deployed to ${ENVIR}", 
     cc: '', 
     from: 'husakten@gmail.com', 
