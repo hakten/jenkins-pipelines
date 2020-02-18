@@ -14,7 +14,7 @@ node {
             sh "docker build -t ${TOOl}:${VERSION} ${TOOL}_${VERSION}/."
     }
     
-    stage("Build Image") {
+    stage("Tag Image") {
             sh "docker tag ${TOOl}:${VERSION} 103872286656.dkr.ecr.eu-west-1.amazonaws.com/${TOOL}:${VERSION}"
     }
 
